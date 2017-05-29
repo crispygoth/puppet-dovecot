@@ -1,7 +1,7 @@
 # 15-mailboxes.conf
 # See README.md for usage
 #
-# Augeas no me deja poner las opciones \Drafts, etc, así que lo defino
+# Augeas no me deja poner las opciones \Drafts, etc, asi que lo defino
 # con un template y tengo que hacerlo con un template
 define dovecot::namespace (
   Enum['present','absent'] $ensure                  = present,
