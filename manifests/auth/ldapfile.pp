@@ -73,5 +73,6 @@ define dovecot::auth::ldapfile (
         iterate_filter   => $iterate_filter,
     }),
     require => Class['::dovecot::ldap'],
+    notify  => Class['::dovecot::service'],
   }
 }
