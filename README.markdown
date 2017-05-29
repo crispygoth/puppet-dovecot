@@ -32,7 +32,9 @@ This is the dovecot module. It provides installation and configuration routines 
   * [`dovecot::lmtp::unix_listener`](#dovecotlmtpunixlistener)
   * [`dovecot::auth::unix_listener`](#dovecotauthunixlistener)
   * [`dovecot::config::listener`](#dovecotconfiglistener)
-5. [Example](#example)
+5. [Defined Types](#definedtypes)
+  * [`dovecot::mountpoint`](#dovecotmountpoint)
+6. [Example](#example)
 
 ## Overview
 
@@ -1083,6 +1085,18 @@ Type of the listener. Valid values: 'unix', 'inet', 'fifo'. Default value: 'unix
 ##### `config_file`
 
 Path of the file where to save the configuation, relative to dovecot config directory. Default value: 'conf.d/10-master.conf'.
+
+## Defined Types
+
+### `mountpoint`
+
+Dovecot tries to keep track of mountpoints that might contain emails to improve error handling. This defined type can be used to specify if mountpoints are required for Dovecot's operation or not.
+
+#### Parameters
+
+##### `state`
+
+Whether Dovecot shall expect the mountpoint to be 'online' (mounted) or 'ignore' it (don't care). Nonexistent mountpoints can be purged using 'absent'.
 
 ## Example
 
