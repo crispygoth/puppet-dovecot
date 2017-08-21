@@ -128,6 +128,9 @@ class dovecot::auth (
         /static|prefetch/: {
           $require = undef
         }
+        'sql': {
+          $require = Dovecot::Auth::Sqlfile[$opts['args']]
+        }
         default: {
           fail("Driver ${opts['driver']} not supported")
         }
@@ -156,6 +159,9 @@ class dovecot::auth (
         }
         /static|prefetch/: {
           $require = undef
+        }
+        'sql': {
+          $require = Dovecot::Auth::Sqlfile[$opts['args']]
         }
         default: {
           fail("Driver ${opts['driver']} not supported")
