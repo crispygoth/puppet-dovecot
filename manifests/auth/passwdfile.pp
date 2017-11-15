@@ -7,13 +7,17 @@ define dovecot::auth::passwdfile (
   Optional[String] $source  = undef,
   Optional[String] $content = undef,
   Array[String] $users      = [],
+  Boolean $manage_content   = true,
 ) {
   include ::dovecot::ldap
 
   #lint:ignore:unquoted_string_in_selector
-  $manage_content = $source ? {
-    undef     => $content ? {
-      undef   => epp('dovecot/auth/passwd-file.epp', { users => $users }),
+  $_manage_content = $source ? {
+    undef   => $content ? {
+      undef   => $manage_content ? {
+        true  => epp('dovecot/auth/passwd-file.epp', { users => $users }),
+        false => undef,
+      },
       default => $content,
     },
     default => undef,
@@ -25,6 +29,6 @@ define dovecot::auth::passwdfile (
     group   => $group,
     mode    => $mode,
     source  => $source,
-    content => $manage_content,
+    content => $_manage_content,
   }
 }
