@@ -1,13 +1,14 @@
 {
   "name": "um-dovecot",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "author": "Angel L. Mateo",
   "license": "Apache License 2.0",
   "summary": "This Dovecot Module installs dovecot and configures it using Augeas",
   "source": "https://github.com/amateo/puppet-dovecot.git",
   "project_page": "https://github.com/amateo/puppet-dovecot.git",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">=4.14.0"}
+    {"name":"puppetlabs/stdlib","version_requirement":">=4.14.0"},
+    {"name":"puppetlabs/concat","version_requirement":">=4.0.0"}
   ],
   "operatingsystem_support": [
     {
